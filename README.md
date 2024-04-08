@@ -28,5 +28,5 @@ We address the three missing values in competition distance by imputing with the
 
 ## 3.4 Assessment of Redundant Observations or Outliers
 
-In "test.csv", 41,088 observations over 48 days result in 856 unique stores out of 1,115. By deleting observations corresponding to stores not in the test set, we reduce the dataset by approximately 25%. Furthermore, deleting observations where stores are closed simplifies the prediction of sales and customers, as these are trivial cases. Figure 2's boxplots of sales and customers reveal a skewed distribution, partially addressed by removing the 99th percentile, a common practice in preprocessing.
+In "test.csv", 41,088 observations over 48 days result in 856 unique stores out of 1,115. By deleting observations corresponding to stores not in the test set, we reduce the dataset by approximately 25%. Furthermore, deleting observations where stores are closed simplifies the prediction of sales and customers, as these are trivial cases. Figure 2's boxplots of sales and customers reveal a skewed distribution, partially addressed by removing the 99th percentile, a common practice in preprocessing to reduce skewness.
 
