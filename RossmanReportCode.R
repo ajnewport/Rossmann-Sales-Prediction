@@ -5,7 +5,6 @@ library(corrplot)
 library(randomForest)
 library(caret)
 library(fastDummies)
-setwd("/Users/Milly/Documents/DATA71011/Report/csvs")
 
 # Stores.csv file
 
@@ -192,17 +191,6 @@ data <- data %>%
                                                       ifelse(data$DayOfWeek == "6", "Saturday", "Sunday")))))))
 
 
-
-
-
-
-
-
-
-
-
-# Outliers/removing data
-
 # Test data preprocessing !!!
 
 start<- as.Date("2015-08-01")
@@ -255,7 +243,7 @@ ggplot(data, aes(x = CompetitionOpenSinceYear)) +
 # probs after eda, before modelling
 # 
 
-#experimental corrplot
+# experimental corrplot
 numeric_data <- data[, sapply(data, is.numeric)]
 correlation_matrix <- cor(numeric_data, use = "complete.obs")  # "complete.obs" removes rows with NA values
 
@@ -267,7 +255,7 @@ combined_data$Assortment <- as.factor(combined_data$Assortment)
 combined_data$StateHoliday <- as.factor(combined_data$StateHoliday)
 combined_data$PromoInterval <- as.factor(combined_data$PromoInterval)
 
-# Then, if you need to explicitly convert these factors to numeric codes (integer values)
+# need to explicitly convert these factors to numeric codes (integer values)
 combined_data$StoreType <- as.integer(combined_data$StoreType) - 1 # Subtract 1 to start at 0, like LabelEncoder
 combined_data$Assortment <- as.integer(combined_data$Assortment) - 1
 combined_data$StateHoliday <- as.integer(combined_data$StateHoliday) - 1
