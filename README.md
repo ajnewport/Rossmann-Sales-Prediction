@@ -43,7 +43,7 @@ To localise all information, we merge “train.csv” with “stores.csv” by t
 
 Figure 3 shows the correlation matrix for the numeric variables after all steps above. Avoiding multicolinearity in the model is a must - the extracted features are totally correlated with the features that they’re made from, we need to bear this in mind for feature selection. Despite this, we see that “DayofWeek”, “Promo”, ”Promo2”, “Promo2TotalMonths” and “Customers” are the variables most correlated with sales. For customers it’s similar, except “CompetitionDistance” with -0.12.
 
-![CorrPlotAfterDeletion](https://github.com/user-attachments/files/16404565/CorrPlotAfterDeletion.png)
+![CorrPlotAfterDeletion](https://github.com/user-attachments/files/16404565/CorrPlotAfterDeletion.pdf)
 
 Let’s investigate deeper into these relationships, using the figures in Appendix B and Figure 3:
 • Promo2 has a negative impact on sales.
