@@ -43,31 +43,27 @@ To localise all information, we merge “train.csv” with “stores.csv” by t
 
 # 4 Exploratory Data Analysis
 
-Figure 3 shows the correlation matrix for the numeric variables after all steps above. Avoiding multicolinearity in the model is a must - the extracted features are totally correlated with the features that they’re made from, we need to bear this in mind for feature selection. Despite this, we see that “DayofWeek”, “Promo”, ”Promo2”, “Promo2TotalMonths” and “Customers” are the variables most correlated with sales. For customers it’s similar, except “CompetitionDistance” with -0.12.
+Figure 3 shows the correlation matrix for the numeric variables after all steps above. Avoiding multicolinearity in the model is a must - the extracted features are totally correlated with the features that they’re made from, we need to bear this in mind for feature selection. Despite this, we see that “DayofWeek”, “Promo”, ”Promo2”, “Promo2TotalMonths” and “Customers” are the variables most correlated with sales. For customers it’s similar, except “CompetitionDistance” with -0.12. This means that stores located farther away from competitors may attract more customers.
 
 ![Correlation matrix after pre-processing the data](https://github.com/user-attachments/assets/790aaabc-5a56-4df1-9626-f762db7ca7f4)
 
-Let’s investigate deeper into these relationships, using the figures in Appendix B and Figure 3:
+Let's look at the average customer and sales for each store type. We see that the lowest average sales and the highest average customers are from store type ‘b’ - implying that customers may make small purchases only that this type of store. Since we do not know the type, we could possibly assume that these types are smaller, convenience-type stores.
 
-• Promo2 has a negative impact on sales.
+![AvgcAvgsStoreType](https://github.com/user-attachments/assets/044b3491-fa83-4cdd-8134-9ccd3b6d1c9c)
 
-• A huge spike in sales can be seen around week 50-52, relating to the Christmas holidays.
+Plotting average sales each week by promotion (see the figure below), the light-blue line which represents the stores participating in a promotion have consistently better sales than the stores that do not participate in the promotion. However, for both classes, there is a spike seen around week 50-52, indicating a surge in sales around the Christmas holidays.
 
-• Stores participated in “Promo” have consistently better sales than those who don’t.
-
-• Lowest average sales and highest average customers are from store type ‘b’ - customers may make small purchases only.
-
-• Stores located farther away from competitors may attract more customers.
+![AvgSalesPerWeekByPromotion](https://github.com/user-attachments/assets/25cbc54b-df18-4577-8b9f-cb0676648dbb)
 
 # 5 The Model
 
-XGBoost uses regularization which prevents overfitting and enhances model performance in real-world scenarios. Like random forest, it can handle large datasets, but it’s less computationally intensive than random forest; another reason why I have chosen it. Unlike linear models, it is also robust to outliers. After careful consideration and experimentation, the features chosen for the models are Store, DayOfWeek, Promo, StateHoliday, SchoolHoliday, Promo2, Promo2TotalMonths, CompetitionDistance, Assortment, StoreType, Week, Month, and Year. Figures 4 shows the predicted vs. actual values for both sales and customers. Respectively, the models had a Root Mean Squared Percentage Error (RMSPE) of 15.5% and 13.5%. A lot of errors are apparent from the high values.
+XGBoost uses regularization which prevents overfitting and enhances model performance in real-world scenarios. Like random forest, it can handle large datasets, but it’s less computationally intensive than random forest; another reason why I have chosen it. Unlike linear models, it is also robust to outliers. After careful consideration and experimentation, the features chosen for the models are Store, DayOfWeek, Promo, StateHoliday, SchoolHoliday, Promo2, Promo2TotalMonths, CompetitionDistance, Assortment, StoreType, Week, Month, and Year. The next plot shows the predicted vs. actual values for both sales and customers. Respectively, the models had a Root Mean Squared Percentage Error (RMSPE) of 15.5% and 13.5%. A lot of errors are apparent from the high values.
 
 ![Plotted predictions against actuals for Sales and Customers](images/PredvActual.png)
 
 # 6 Results, Limitations & Assumptions
 
-Now we apply the models to “test.csv” - results from Figure 5.
+Now we apply the models to “test.csv” - results from the figure below.
 
 ![Distributions of predicted sales and customers in the test dataset](images/FinalPlot.png)
 
