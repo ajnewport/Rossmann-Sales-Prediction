@@ -24,7 +24,7 @@ Evaluating the variable quality informs decisions on transformations. Returning 
 
 Merging the train and store datasets is necessary to include all information about the stores, but before this, some variable transformations and imputations are realized. Before applying any imputation, the nature of the missingness of the data is evaluated. Figure 1 visualizes this missingness, with the percentage of missing data ranging from 0-40%, suggesting a localized approach to addressing missingness. The data is Missing At Random (MAR) for Promo2 time-based variables, as it relates to observed data. For competitor time-based variables, they might have been lost during data collection, which wouldn't be surprising given the years passed.
 
-![Visualisation of the data’s missing patterns](images/MissingnessofData.pdf)
+![Visualisation of the data’s missing patterns](https://github.com/user-attachments/assets/42aae322-b8a8-41d9-a474-facf88821053)
 
 We address the three missing values in competition distance by imputing with the median, as non-zero values for CompetitionOpenSinceMonth/Year imply the competitors exist. Time-based variables for competition are imputed by mode for ordinal variables like these. For "Promo2" time-based variables, missing values exist only when "Promo2" is zero, meaning we can replace missing values with zero without affecting the model. Additionally, "test.csv" lacks 11 'Open' values—all from store 622. Assuming these are not closed days, we replace them with 1. 
 
@@ -33,7 +33,7 @@ We address the three missing values in competition distance by imputing with the
 
 In "test.csv", 41,088 observations over 48 days result in 856 unique stores out of 1,115. By deleting observations corresponding to stores not in the test set, we reduce the dataset by approximately 25%. Furthermore, deleting observations where stores are closed simplifies the prediction of sales and customers, as these are trivial cases. Figure 2's boxplots of sales and customers reveal a skewed distribution, partially addressed by removing the 99th percentile, a common practice in preprocessing to reduce skewness.
 
-![Boxplots of sales (left) and customers (right)](images/Outliers.pdf)
+![Boxplots of sales (left) and customers (right)](https://github.com/user-attachments/assets/e8848012-255a-470e-946d-40b6f8ed9999)
 
 ## 3.5 Data Linkage & Feature Extraction
 
@@ -43,7 +43,7 @@ To localise all information, we merge “train.csv” with “stores.csv” by t
 
 Figure 3 shows the correlation matrix for the numeric variables after all steps above. Avoiding multicolinearity in the model is a must - the extracted features are totally correlated with the features that they’re made from, we need to bear this in mind for feature selection. Despite this, we see that “DayofWeek”, “Promo”, ”Promo2”, “Promo2TotalMonths” and “Customers” are the variables most correlated with sales. For customers it’s similar, except “CompetitionDistance” with -0.12.
 
-![Correlation matrix after pre-processing the data](images/CorrPlotAfterDeletion.pdf)
+![Correlation matrix after pre-processing the data](https://github.com/user-attachments/assets/790aaabc-5a56-4df1-9626-f762db7ca7f4)
 
 Let’s investigate deeper into these relationships, using the figures in Appendix B and Figure 3:
 • Promo2 has a negative impact on sales.
