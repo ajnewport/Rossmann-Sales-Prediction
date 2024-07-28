@@ -2,6 +2,8 @@
 
 Sales forecasting is necessary for commercial businesses to make future decisions based on demand. In this report, the data collected are from Rossmann, a pharmaceutical store chain in Europe over the course of two and a half years. It consists of 1,115 franchises located across Germany. The main objective is to preprocess the data in such a way that it is reliable enough to conduct an exploratory analysis. This involves multiple steps, which include assessing the data quality, data cleaning, data transformation, and finally, reducing the data. This is preceded by choosing and constructing a model that predicts 6 weeks of daily sales, of which the accuracy is appropriately evaluated.
 
+The data is open-source and can be found at: https://www.kaggle.com/c/rossmann-store-sales/data 
+
 # 2 Description of the Data
 
 The data are separated into three datasets, called “store.csv”, “train.csv”, and “test.csv”. Tables 1 and 2 in Appendix A present the variables within the store dataset and the train/test dataset, respectively, as well as their description. To summarize, “store.csv” contains the information for each Rossmann franchise, and thus has 1,115 observations; “train.csv” and “test.csv” both contain the sales data each day from 01/01/2013 to 31/07/2015, except for “test.csv” that Sales and Customers are unknown for the period of 01/08/2015 to 17/09/2015. These variables will be referenced throughout the report.
