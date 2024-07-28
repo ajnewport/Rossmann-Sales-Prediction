@@ -48,10 +48,15 @@ Figure 3 shows the correlation matrix for the numeric variables after all steps 
 ![Correlation matrix after pre-processing the data](https://github.com/user-attachments/assets/790aaabc-5a56-4df1-9626-f762db7ca7f4)
 
 Let’s investigate deeper into these relationships, using the figures in Appendix B and Figure 3:
+
 • Promo2 has a negative impact on sales.
+
 • A huge spike in sales can be seen around week 50-52, relating to the Christmas holidays.
+
 • Stores participated in “Promo” have consistently better sales than those who don’t.
+
 • Lowest average sales and highest average customers are from store type ‘b’ - customers may make small purchases only.
+
 • Stores located farther away from competitors may attract more customers.
 
 # 5 The Model
